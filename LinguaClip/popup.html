@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>LinguaClip</title>
+   <link rel="stylesheet" href="css/fonts.css">
+   <link rel="stylesheet" href="css/popup.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <img src="icons/icon128.png" alt="LinguaClip Logo" class="logo">
+            <h1>LinguaClip</h1>
+        </header>
+
+        <main>
+            <button id="start-study-btn" class="btn btn-primary">Estudiar Flashcards</button>
+
+            <div id="empty-message" style="display: none;">
+                <p>¡Añade tu primera palabra!</p>
+                <span>Selecciona texto en cualquier página para empezar.</span>
+            </div>
+
+            <ul id="selection-list"></ul>
+
+            <div id="controls" style="display: none;">
+                <button id="delete-selected-btn" class="btn btn-secondary">Eliminar</button>
+            </div>
+        </main>
+
+        <footer id="footer">
+            <a href="#" id="open-options-link">Configuración</a>
+            <span class="separator">|</span>
+            <a href="#" id="export-csv-link">Exportar a CSV</a>
+        </footer>
+    </div>
+    <script type="module" src="js/popup.js"></script>
+</body>
+</html>

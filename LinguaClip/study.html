@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Modo Estudio</title>
+  <link rel="stylesheet" href="css/fonts.css">
+  <link rel="stylesheet" href="css/study.css">
+</head>
+<body>
+  <div id="pomodoro-container" class="card pomodoro-work">
+    <div id="pomodoro-status">Tiempo de Trabajo</div>
+    <div id="pomodoro-display">25:00</div>
+    <div id="pomodoro-controls">
+      <button id="pomodoro-start-btn" class="btn">Iniciar</button>
+      <button id="pomodoro-pause-btn" class="btn" style="display: none;">Pausar</button>
+      <button id="pomodoro-reset-btn" class="btn">Reiniciar</button>
+    </div>
+  </div>
+  
+  <div id="study-container">
+    <div id="flashcard">
+      <div class="flashcard-inner">
+        <div id="card-front" class="card-face">
+          <button id="listen-btn" style="display: none;" title="Escuchar pronunciación">
+            <img src="icons/audio.png" alt="Escuchar">
+          </button>
+          <span id="card-front-text">Cargando...</span>
+          <div id="card-example" style="display: none;"></div>
+        </div>
+        <div id="card-back" class="card-face">
+          <span id="card-back-text"></span>
+        </div>
+      </div>
+    </div>
+    
+    <div id="study-controls">
+      <button id="show-answer-btn" class="btn btn-primary">Mostrar Respuesta</button>
+      <button id="again-btn" class="btn rating-btn" style="display: none;">Otra vez</button>
+      <button id="hard-btn" class="btn rating-btn" style="display: none;">Difícil</button>
+      <button id="good-btn" class="btn rating-btn" style="display: none;">Bien</button>
+      <button id="easy-btn" class="btn rating-btn" style="display: none;">Fácil</button>
+      <button id="restart-btn" class="btn" style="display: none;">Estudiar de Nuevo</button>
+    </div>
+    
+    <div id="dictionary-links" style="display: none;">
+      <a href="#" id="google-link">Google Translate</a>
+      <a href="#" id="wr-link">WordReference</a>
+    </div>
+    
+    <p id="progress-text"></p> 
+  </div>
+  
+  <script type="module" src="js/study.js"></script>
+</body>
+</html>

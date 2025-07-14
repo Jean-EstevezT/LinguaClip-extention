@@ -1,0 +1,341 @@
+/* --- Global Styles & Font --- */
+:root {
+    --font-family: 'Poppins', sans-serif;
+}
+
+/* --- Light Theme (Default) --- */
+body, body[data-theme='cozy-light'] {
+    --bg-color: #f4f7f9;
+    --card-bg: #ffffff;
+    --text-primary: #3d3d3d;
+    --text-secondary: #7a7a7a;
+    --accent-primary: #a2d2ff;
+    --accent-primary-hover: #8cbbed;
+    --border-color: #e0e0e0;
+    --shadow-color: rgba(0, 0, 0, 0.08);
+
+    --rating-again: #ffc8dd;
+    --rating-hard: #ffd6a5;
+    --rating-good: #c8e6c9;
+    --rating-easy: #bde0fe;
+    --rating-text: #3d3d3d;
+    
+    /* Pomodoro colors */
+    --pomodoro-work: #a2d2ff;
+    --pomodoro-break: #ffc8dd;
+}
+
+/* --- Dark Theme --- */
+body[data-theme='dark'] {
+    --bg-color: #1e1e2e;
+    --card-bg: #313244;
+    --text-primary: #cdd6f4;
+    --text-secondary: #a6adc8;
+    --accent-primary: #89b4fa;
+    --accent-primary-hover: #7287fd;
+    --border-color: #45475a;
+    --shadow-color: rgba(0, 0, 0, 0.2);
+
+    --rating-again: #f38ba8;
+    --rating-hard: #fab387;
+    --rating-good: #a6e3a1;
+    --rating-easy: #74c7ec;
+    --rating-text: #1e1e2e;
+    
+    /* Pomodoro colors */
+    --pomodoro-work: #89b4fa;
+    --pomodoro-break: #f38ba8;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  background-color: var(--bg-color);
+  color: var(--text-primary);
+  gap: 2em;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* --- Containers --- */
+.card {
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 4px 12px var(--shadow-color);
+  text-align: center;
+}
+
+#pomodoro-container {
+  width: 320px; 
+  transition: all 0.3s ease;
+  padding: 16px; 
+}
+
+#study-container {
+  width: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* --- Pomodoro Timer --- */
+#pomodoro-display {
+  font-size: 2.5em;
+  font-weight: 600;
+  margin: 5px 0;
+  font-feature-settings: "tnum";
+  font-variant-numeric: tabular-nums;
+}
+
+#pomodoro-status {
+  color: var(--text-secondary);
+  margin-bottom: 0.5em; 
+  font-size: 13px; 
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 600;
+}
+
+.pomodoro-work {
+  background-color: rgba(162, 210, 255, 0.1);
+  border-color: var(--pomodoro-work);
+}
+
+.pomodoro-break {
+  background-color: rgba(255, 200, 221, 0.1);
+  border-color: var(--pomodoro-break);
+}
+
+
+/* --- Flashcard --- */
+#flashcard {
+  background-color: transparent; 
+  border: none;
+  box-shadow: none;
+  min-height: 200px;
+  cursor: pointer;
+  perspective: 1000px;
+  width: 100%;
+  max-width: 500px;
+  aspect-ratio: 5/3;
+}
+
+.flashcard-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+#flashcard.flipped .flashcard-inner {
+  transform: rotateY(180deg);
+}
+
+.card-face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+  box-sizing: border-box;
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  box-shadow: 0 4px 12px var(--shadow-color);
+  text-align: center;
+}
+
+#card-front-text {
+  font-size: 2.2em;
+  font-weight: 600;
+  max-width: 100%;
+  word-break: break-word;
+}
+
+#card-example {
+  margin-top: 20px;
+  font-style: italic;
+  color: var(--text-secondary);
+  font-size: 1em;
+  max-width: 100%;
+  padding: 0 20px;
+  line-height: 1.5;
+}
+
+#card-back {
+  transform: rotateY(180deg);
+}
+
+#card-back-text {
+  color: var(--accent-primary);
+  font-size: 1.8em;
+  font-weight: 600;
+  max-width: 100%;
+  word-break: break-word;
+}
+
+/* --- Controls --- */
+#study-controls {
+  margin-top: 30px;
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.btn {
+  padding: 12px 24px;
+  font-size: 14px;
+  font-weight: 600;
+  font-family: var(--font-family);
+  cursor: pointer;
+  border: none;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 4px var(--shadow-color);
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px var(--shadow-color);
+}
+
+.btn:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px var(--shadow-color);
+}
+
+.btn-primary {
+  background-color: var(--accent-primary);
+  color: white;
+}
+.btn-primary:hover {
+  background-color: var(--accent-primary-hover);
+}
+
+.rating-btn {
+  color: var(--rating-text);
+  min-width: 80px;
+}
+
+#again-btn { background-color: var(--rating-again); }
+#hard-btn { background-color: var(--rating-hard); }
+#good-btn { background-color: var(--rating-good); }
+#easy-btn { background-color: var(--rating-easy); }
+
+/* --- Icon & Dictionary Links --- */
+#listen-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s ease;
+}
+
+#listen-btn:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+#listen-btn img {
+  width: 24px;
+  height: 24px;
+  opacity: 0.6;
+}
+
+#dictionary-links {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+  justify-content: center;
+  align-items: center;
+}
+
+#dictionary-links a {
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: color 0.2s ease;
+  padding: 6px 12px;
+  border-radius: 6px;
+  border: 1px solid var(--border-color);
+  font-size: 14px;
+}
+
+#dictionary-links a:hover {
+  color: var(--accent-primary);
+  background-color: rgba(162, 210, 255, 0.1);
+  text-decoration: none;
+}
+
+#progress-text {
+  margin-top: 1.5em;
+  color: var(--text-secondary);
+  font-size: 14px;
+}
+
+/* Pomodoro Controls */
+#pomodoro-controls {
+  display: flex;
+  gap: 8px; 
+  justify-content: center;
+  margin-top: 10px; 
+}
+
+#pomodoro-controls .btn {
+  min-width: 80px; 
+  padding: 10px 16px; 
+  font-size: 13px; 
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  #pomodoro-container, 
+  #study-container {
+    width: 90%;
+    max-width: 90%;
+  }
+  
+  #flashcard {
+    aspect-ratio: 4/3;
+  }
+  
+  #card-front-text {
+    font-size: 1.8em;
+  }
+  
+  #card-back-text {
+    font-size: 1.5em;
+  }
+  
+  #study-controls {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  #study-controls .btn {
+    width: 100%;
+    max-width: 300px;
+  }
+}

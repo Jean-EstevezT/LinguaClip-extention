@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Opciones de LinguaClip</title>
+  <link rel="stylesheet" href="css/fonts.css">
+  <link rel="stylesheet" href="css/options.css">
+  <script src="lib/chart.min.js"></script>
+</head>
+<body>
+  <h1>Opciones</h1>
+  <div class="option">
+    <label for="language">Traducir selecciones a:</label>
+    <select id="language">
+      <option value="es">Español</option>
+      <option value="en">Inglés</option>
+      <option value="fr">Francés</option>
+      <option value="de">Alemán</option>
+      <option value="pt">Portugués</option>
+      <option value="it">Italiano</option>
+      <option value="ja">Japonés</option>
+    </select>
+  </div>
+  <div class="option">
+    <label for="theme-selector">Apariencia:</label>
+    <select id="theme-selector">
+      <option value="system">Predeterminado del Sistema</option>
+      <option value="cozy-light">Claro (Cálido)</option>
+      <option value="dark">Oscuro</option>
+    </select>
+  </div>
+  <div class="option">
+    <label for="daily-limit">Tarjetas a estudiar por día:</label>
+    <input type="number" id="daily-limit" min="1" style="width: 60px;">
+  </div>
+  <div class="option">
+    <label>Temporizador Pomodoro (minutos)</label>
+    <div class="pomodoro-container">
+      <div>
+        <label for="pomodoro-work" class="sub-label">Trabajo:</label>
+        <input type="number" id="pomodoro-work" min="1" style="width: 60px;">
+      </div>
+      <div>
+        <label for="pomodoro-break" class="sub-label">Descanso:</label>
+        <input type="number" id="pomodoro-break" min="1" style="width: 60px;">
+      </div>
+    </div>
+  </div>
+  <div class="option">
+    <label>Progreso de Estudio</label>
+    <button id="reset-srs-btn">Reiniciar todo el progreso</button>
+    <p class="warning-text">Esto no eliminará tus tarjetas, solo reiniciará el progreso del estudio.</p>
+  </div>
+  <hr>
+  <h2>Estadísticas</h2>
+  <div id="stats-container">
+    <div class="stat-grid">
+      <div class="stat-item">
+        <h3 id="total-cards">0</h3>
+        <p>Total</p>
+      </div>
+      <div class="stat-item">
+        <h3 id="due-today">0</h3>
+        <p>Para hoy</p>
+      </div>
+      <div class="stat-item">
+        <h3 id="mature-cards">0</h3>
+        <p>Aprendidas</p>
+      </div>
+    </div>
+    <canvas id="forecast-chart"></canvas>
+  </div>
+  <hr>
+
+  <div class="stats-section">
+      <h2>🔥 Racha de Estudio</h2>
+      <div class="streaks-container">
+          <div class="streak-box">
+              <div class="streak-value" id="current-streak">0</div>
+              <div class="streak-label">Racha Actual</div>
+          </div>
+          <div class="streak-box">
+              <div class="streak-value" id="longest-streak">0</div>
+              <div class="streak-label">Racha Más Larga</div>
+          </div>
+      </div>
+  </div>
+  
+  <h2>Gestionar Tarjetas</h2>
+  <div id="card-list-container">
+    <div class="option">
+      <label for="import-csv-input">Importar desde archivo CSV (Formato: Original;Traducción)</label>
+      <div class="import-container">
+        <input type="file" id="import-csv-input" accept=".csv">
+        <button id="import-csv-btn">Importar</button>
+      </div>
+    </div>
+    <div class="option">
+        <label>Zona de Peligro</label>
+        <button id="delete-all-btn">Eliminar Todas las Tarjetas</button>
+    </div>
+    <table>
+      <thead>
+        <tr><th>Original</th><th>Traducción</th><th>Diccionario</th><th>Acciones</th></tr>
+      </thead>
+      <tbody id="card-list-body"></tbody>
+    </table>
+  </div>
+  <hr>
+  <h2>Sobre el Creador</h2>
+  <div class="creator-section">
+      <p>By <strong>Jean Estevez</strong></p>
+      <div class="social-links">
+          <a href="https://github.com/Jean-EstevezT/" target="_blank" title="GitHub">GitHub</a>
+          <a href="https://www.linkedin.com/in/j-carlos-estevez/" target="_blank" title="LinkedIn">LinkedIn</a>
+          <a href="https://x.com/jeantvz" target="_blank" title="X (Twitter)">X</a>
+      </div>
+  </div>
+  <div id="status"></div>
+  <script type="module" src="js/options.js"></script>
+</body>
+</html>
