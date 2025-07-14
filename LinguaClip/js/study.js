@@ -275,11 +275,11 @@ document.addEventListener('DOMContentLoaded', () => {
     state.pomodoroIsWorkSession = !state.pomodoroIsWorkSession;
     state.pomodoroIsRunning = false;
 
-    if (state.pomodoroIsRunning) {
-      state.pomodoroStatus.textContent = 'Tiempo de Trabajo';
+    if (state.pomodoroIsWorkSession) {
+      elements.pomodoroStatus.textContent = 'Tiempo de Trabajo';
       state.pomodoroTimeLeft = state.pomodoroSettings.work * 60;
     } else {
-      state.pomodoroStatus.textContent = 'Tiempo de Descanso';
+      elements.pomodoroStatus.textContent = 'Tiempo de Descanso';
       state.pomodoroTimeLeft = state.pomodoroSettings.break * 60;
     }
 
@@ -294,7 +294,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     state.pomodoroIsRunning = false;
     state.pomodoroIsWorkSession = true;
-    state.pomodoroStatus.textContent = 'Tiempo de Trabajo';
+    elements.pomodoroStatus.textContent = 'Tiempo de Trabajo';
     state.pomodoroTimeLeft = state.pomodoroSettings.work * 60;
     
     updatePomodoroDisplay();
